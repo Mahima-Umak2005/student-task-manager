@@ -129,3 +129,5 @@ No secrets in code; token via env var / GitHub Secrets; `.gitignore` excludes st
 
 ## Cleanup
 `terraform destroy` (after backing up evidence), then delete the GitHub secrets and revoke the API token.
+## Deployment Status
+Deployed using Terraform and Cloudflare Workers.
