@@ -17,35 +17,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run tests
-        run: npm test
+      - run: npm ci
+      - run: npm test
 
   terraform-validate:
-    name: Terraform format and validation
+    name: Terraform validation
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: terraform
     steps:
       - uses: actions/checkout@v4
-
       - uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: "~1.9"
-
-      - name: Check formatting
-        run: terraform fmt -check -recursive
-
-      - name: Initialize providers without a backend
-        run: terraform init -backend=false -input=false
-
-      - name: Validate configuration
-        run: terraform validate
+      - run: terraform fmt -check -recursive
+      - run: terraform init -backend=false -input=false
+      - run: terraform validate
