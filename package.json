@@ -1,0 +1,10 @@
+{
+  "name": "student-task-manager-iac",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Serverless Student Task Manager on Cloudflare Workers + KV, deployed with Terraform",
+  "scripts": {
+    "test": "node --test tests/api.test.mjs"
+  }
+}

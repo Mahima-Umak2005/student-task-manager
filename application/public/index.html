@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>Student Task Manager</h1>
+    <p>Serverless app on Cloudflare Workers + KV, deployed with Terraform</p>
+  </header>
+
+  <main class="container">
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <section class="card">
+      <h2 id="form-title">Add a task</h2>
+      <form id="task-form" novalidate>
+        <input type="hidden" id="task-id" />
+        <label for="title">Title</label>
+        <input id="title" type="text" maxlength="120" placeholder="e.g. Finish DBMS assignment" required />
+
+        <div class="row">
+          <div>
+            <label for="priority">Priority</label>
+            <select id="priority">
+              <option>High</option>
+              <option selected>Medium</option>
+              <option>Low</option>
+            </select>
+          </div>
+          <div>
+            <label for="status">Status</label>
+            <select id="status">
+              <option selected>Pending</option>
+              <option>Completed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="save-btn" class="btn primary">Add task</button>
+          <button type="button" id="cancel-btn" class="btn" hidden>Cancel edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="list-head">
+        <h2>Your tasks</h2>
+        <button type="button" id="refresh-btn" class="btn small">Refresh</button>
+      </div>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Search by title" aria-label="Search tasks" />
+        <select id="filter-status" aria-label="Filter by status">
+          <option value="">All statuses</option>
+          <option>Pending</option>
+          <option>Completed</option>
+        </select>
+        <select id="filter-priority" aria-label="Filter by priority">
+          <option value="">All priorities</option>
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+      </div>
+
+      <div id="loading" class="loading" hidden><span class="spinner"></span> Loading…</div>
+      <p id="empty" class="empty" hidden>No tasks to show.</p>
+      <ul id="task-list" class="task-list"></ul>
+    </section>
+
+    <section id="detail-card" class="card" hidden>
+      <div class="list-head">
+        <h2>Task details</h2>
+        <button type="button" id="close-detail" class="btn small">Close</button>
+      </div>
+      <dl id="detail" class="detail"></dl>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# OPTIONAL remote state for CI/CD. Rename to backend.tf only after creating the
+# bucket manually (one-time bootstrap) and setting the AWS_ACCESS_KEY_ID /
+# AWS_SECRET_ACCESS_KEY environment variables to R2 API credentials.
+#
+# Without a remote backend, GitHub Actions starts with EMPTY state and would try
+# to create duplicate resources. Use local state + local applies for the demo,
+# OR configure a remote backend before relying on the pipeline's apply job.
+#
+# NOT VERIFIED in this project: whether Cloudflare R2 honours the conditional
+# writes needed for use_lockfile locking. Test it before depending on it.
+
+terraform {
+  backend "s3" {
+    bucket = "REPLACE_WITH_R2_BUCKET"
+    key    = "student-task-manager/terraform.tfstate"
+    region = "auto"
+
+    endpoints = {
+      s3 = "https://<ACCOUNT_ID>.r2.cloudflarestorage.com"
+    }
+
+    skip_credentials_validation = true
+    skip_region_validation      = true
+    skip_requesting_account_id  = true
+    skip_metadata_api_check     = true
+    skip_s3_checksum            = true
+    # use_lockfile = true   # Terraform >= 1.10; see note above
+  }
+}

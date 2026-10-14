@@ -1,0 +1,9 @@
+```hcl
+cloudflare_account_id = "38f4e03cbb6362673d1b0034ade1b3eb"
+
+worker_name        = "student-task-manager"
+kv_namespace_title = "student-task-manager-tasks"
+compatibility_date = "2025-09-01"
+
+workers_subdomain = "co-2023-mpumak"
+```
