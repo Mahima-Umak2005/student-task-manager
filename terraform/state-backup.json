@@ -1,0 +1,279 @@
+﻿{
+  "version": 4,
+  "terraform_version": "1.16.6",
+  "serial": 8,
+  "lineage": "6dd15882-3014-5182-0fc8-4079545ddf17",
+  "outputs": {
+    "application_url": {
+      "value": "https://student-task-manager.co-2023-mpumak.workers.dev",
+      "type": "string"
+    },
+    "kv_namespace_id": {
+      "value": "3241ecea80564e22bb286b36d1c099a8",
+      "type": "string"
+    },
+    "kv_namespace_title": {
+      "value": "student-task-manager-tasks",
+      "type": "string"
+    },
+    "worker_name": {
+      "value": "student-task-manager",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "cloudflare_workers_kv_namespace",
+      "name": "tasks",
+      "provider": "provider[\"registry.terraform.io/cloudflare/cloudflare\"]",
+      "instances": [
+        {
+          "schema_version": 500,
+          "attributes": {
+            "account_id": "38f4e03cbb6362673d1b0034ade1b3eb",
+            "id": "3241ecea80564e22bb286b36d1c099a8",
+            "jurisdiction": null,
+            "mode": null,
+            "supports_url_encoding": true,
+            "title": "student-task-manager-tasks"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "cloudflare_workers_script",
+      "name": "app",
+      "provider": "provider[\"registry.terraform.io/cloudflare/cloudflare\"]",
+      "instances": [
+        {
+          "schema_version": 500,
+          "attributes": {
+            "account_id": "38f4e03cbb6362673d1b0034ade1b3eb",
+            "annotations": null,
+            "assets": {
+              "asset_manifest_sha256": "48e73b3cefe0624aabdf9f3d27da9196abf327c55849126300cb203a936993f8",
+              "config": {
+                "base_path": "/",
+                "headers": null,
+                "html_handling": "auto-trailing-slash",
+                "not_found_handling": "none",
+                "redirects": null,
+                "run_worker_first": null,
+                "serve_directly": null
+              },
+              "directory": "./../application/public",
+              "jwt": null
+            },
+            "bindings": [
+              {
+                "algorithm": null,
+                "allowed_destination_addresses": null,
+                "allowed_sender_addresses": null,
+                "app_id": null,
+                "bucket_name": null,
+                "certificate_id": null,
+                "class_name": null,
+                "database_id": null,
+                "dataset": null,
+                "destination_address": null,
+                "dispatch_namespace": null,
+                "entrypoint": null,
+                "environment": null,
+                "format": null,
+                "id": null,
+                "index_name": null,
+                "instance_name": null,
+                "json": null,
+                "jurisdiction": null,
+                "key_base64": null,
+                "key_jwk": null,
+                "name": "TASKS_KV",
+                "namespace": null,
+                "namespace_id": "3241ecea80564e22bb286b36d1c099a8",
+                "network_id": null,
+                "old_name": null,
+                "outbound": null,
+                "part": null,
+                "pipeline": null,
+                "queue_name": null,
+                "retry": null,
+                "script_name": null,
+                "secret_name": null,
+                "service": null,
+                "service_id": null,
+                "simple": null,
+                "store_id": null,
+                "stream": null,
+                "text": null,
+                "tunnel_id": null,
+                "type": "kv_namespace",
+                "usages": null,
+                "version_id": null,
+                "workflow_name": null
+              }
+            ],
+            "bindings_inherit": null,
+            "body_part": null,
+            "cache_options": null,
+            "compatibility_date": "2025-09-01",
+            "compatibility_flags": [],
+            "content": null,
+            "content_file": "./../application/worker.js",
+            "content_sha256": "5e76a5266bb429861c2d3df9e7b84dab6695c4738fec14f556bbee958d84fd8f",
+            "content_type": null,
+            "created_on": "2026-10-14T15:39:46Z",
+            "etag": "a4e192491869a375b12b5aa00b4b7894a776658a5a957bb9b9bf054ef8f827ea",
+            "exports": null,
+            "files": null,
+            "force": null,
+            "handlers": [
+              "fetch"
+            ],
+            "has_assets": true,
+            "has_modules": true,
+            "id": "student-task-manager",
+            "keep_assets": null,
+            "keep_bindings": null,
+            "last_deployed_from": "terraform",
+            "limits": null,
+            "logpush": false,
+            "main_module": "worker.js",
+            "migration_tag": null,
+            "migrations": null,
+            "modified_on": "2026-10-14T15:39:54Z",
+            "named_handlers": null,
+            "observability": null,
+            "package_dependencies": null,
+            "placement": null,
+            "placement_mode": null,
+            "placement_status": null,
+            "script_name": "student-task-manager",
+            "startup_time_ms": 0,
+            "tail_consumers": [],
+            "usage_model": "standard"
+          },
+          "sensitive_attributes": [
+            [
+              {
+                "type": "get_attr",
+                "value": "assets"
+              },
+              {
+                "type": "get_attr",
+                "value": "jwt"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "bindings"
+              },
+              {
+                "type": "index",
+                "value": {
+                  "value": 0,
+                  "type": "number"
+                }
+              },
+              {
+                "type": "get_attr",
+                "value": "key_base64"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "bindings"
+              },
+              {
+                "type": "index",
+                "value": {
+                  "value": 0,
+                  "type": "number"
+                }
+              },
+              {
+                "type": "get_attr",
+                "value": "key_jwk"
+              }
+            ],
+            [
+              {
+                "type": "get_attr",
+                "value": "bindings"
+              },
+              {
+                "type": "index",
+                "value": {
+                  "value": 0,
+                  "type": "number"
+                }
+              },
+              {
+                "type": "get_attr",
+                "value": "text"
+              }
+            ]
+          ],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "cloudflare_workers_kv_namespace.tasks"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "cloudflare_workers_script_subdomain",
+      "name": "app",
+      "provider": "provider[\"registry.terraform.io/cloudflare/cloudflare\"]",
+      "instances": [
+        {
+          "schema_version": 500,
+          "attributes": {
+            "account_id": "38f4e03cbb6362673d1b0034ade1b3eb",
+            "enabled": true,
+            "id": "student-task-manager",
+            "previews_enabled": false,
+            "script_name": "student-task-manager"
+          },
+          "sensitive_attributes": [],
+          "identity_schema_version": 0,
+          "dependencies": [
+            "cloudflare_workers_kv_namespace.tasks",
+            "cloudflare_workers_script.app"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": [
+    {
+      "object_kind": "var",
+      "config_addr": "var.worker_name",
+      "status": "pass",
+      "objects": [
+        {
+          "object_addr": "var.worker_name",
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "object_kind": "var",
+      "config_addr": "var.cloudflare_account_id",
+      "status": "pass",
+      "objects": [
+        {
+          "object_addr": "var.cloudflare_account_id",
+          "status": "pass"
+        }
+      ]
+    }
+  ]
+}
+
